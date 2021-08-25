@@ -22,7 +22,6 @@ public class Game {
             print_();
             wrongs();
 
-            System.out.println("--" + this.score + "--");
             if (this.wrong_count == 10) {
                 break;
             }
@@ -73,9 +72,16 @@ public class Game {
         }
         System.out.println();
 
-        if (!found) {
-            this.wrong[this.wrong_count++] = ch;
+        if (found) {
+            return;
         }
+
+        for (int i = 0; i < this.wrong_count; i++) {
+            if (this.wrong[i] == ch) {
+                return;
+            }
+        }
+        this.wrong[this.wrong_count++] = ch;
     }
 
     private void result() {

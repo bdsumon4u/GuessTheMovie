@@ -8,19 +8,6 @@ import java.util.Scanner;
 public class MovieBox {
     private static final File movies = new File("src/movies.txt");
 
-    public static void list() {
-        try {
-            Scanner sc = new Scanner(movies);
-            while (sc.hasNextLine()) {
-                System.out.println(sc.nextLine());
-            }
-            sc.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
-
     public static int length() {
         int length = 0;
         try {
@@ -46,6 +33,7 @@ public class MovieBox {
             for (int i = rand.nextInt(length()) + 1; i != 0; i--) {
                 line = sc.nextLine();
             }
+            sc.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

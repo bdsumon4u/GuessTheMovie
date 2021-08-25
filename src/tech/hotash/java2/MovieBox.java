@@ -19,4 +19,20 @@ public class MovieBox {
             e.printStackTrace();
         }
     }
+
+    public static int length() {
+        int length = 0;
+        try {
+            Scanner sc = new Scanner(movies);
+            while (sc.hasNextLine()) {
+                sc.nextLine();
+                length++;
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        return length;
+    }
 }
